@@ -1,0 +1,76 @@
+<!-- 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Expense</title>
+</head>
+<body>
+    <h2>Add Expense</h2>
+    <p>Logged in as: {{ username }}</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Add Expense</button>
+    </form>
+</body>
+</html>
+ -->
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Add Expense</title>
+     <script>
+         window.onload = function() {
+             // Function to show or hide amount fields based on the selected sharing type
+             function toggleAmountFields() {
+                 var shareType = document.getElementById('id_share_type').value;
+                 var amountFields = document.querySelectorAll('.amount-field');
+ 
+                 if (shareType === 'exactly') {
+                     amountFields.forEach(function(field) {
+                         field.style.display = 'block';
+                     });
+                 } else {
+                     amountFields.forEach(function(field) {
+                         field.style.display = 'none';
+                     });
+                 }
+             }
+ 
+             // Call toggleAmountFields initially to set initial visibility
+             toggleAmountFields();
+ 
+             // Add event listener to the share type field to update visibility on change
+             document.getElementById('id_share_type').addEventListener('change', toggleAmountFields);
+         };
+     </script>
+ </head>
+ <body>
+     <h2>Add Expense</h2>
+     <p>Logged in as: {{ username }}</p>
+     <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <!-- Amount fields will be initially hidden -->
+        <div id="amountFieldsContainer">
+            {% for user in form.users %}
+                <div class="amount-field" style="display: none;">
+                    <label for="id_amount_{{ user.id }}">Amount for {{ user.username }}:</label>
+                    <input type="text" name="amount_{{ user.id }}" id="id_amount_{{ user.id }}"><br>
+                </div>
+            {% endfor %}
+        </div>
+    
+        <button type="submit">Add Expense</button>
+    </form>
+ </body>
+ </html>
+ 
