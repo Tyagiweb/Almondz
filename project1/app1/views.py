@@ -22,8 +22,7 @@ from django.http import HttpResponse
 #-------------for data upload to s3 bucket--------------
 # def upload_to_s3(request):
 #     # Explicitly specify AWS credentials
-#     aws_access_key_id = 'AKIAYS2NTGPTY5HOJRSK'
-#     aws_secret_access_key = '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'
+
 #     aws_region = 'us-east-1'
 
 #     try:
