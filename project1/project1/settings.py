@@ -141,7 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #aws creditional key and id we can kept in environment variable or in .txt we can save but currently we have passed
-AWS_ACCESS_KEY_ID = 'AKIAYS2NTGPTY5HOJRSK'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
 AWS_REGION = 'us-east-1'
-AWS_S3_BUCKET_NAME = 'sharing-data-flats'
+AWS_S3_BUCKET_NAME = ''
